@@ -1,7 +1,7 @@
 {
   "name": "pure-react-router",
   "version": "0.0.1",
-  "description": "",
+  "description": "一个干净的 React Router 实现。",
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
