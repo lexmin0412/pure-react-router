@@ -41,8 +41,12 @@
   },
   "devDependencies": {
     "@types/node": "^22.7.9",
+    "@types/react": "^18.3.12",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "react": "^18.3.1"
   }
 }
