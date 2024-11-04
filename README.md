@@ -2,13 +2,21 @@
 
 一个干净的 React Router 实现，API 参考了 React Router 但大幅简化。
 
+- 快速，API 与 React Router 的核心 API 用法基本一致
+- 轻量，除应用所需 React 外，无任何第三方依赖
+
 ## API
 
 ### 组件
 
 #### BrowserRouter
 
-路由容器。只需简单传入扁平的 routes 配置即可，无需繁琐的 Switch/Router/Route 嵌套。
+路由容器。接收一个扁平的 routes 数组配置。
+
+属性：
+
+- basename 路由前缀
+- routes 路由配置
 
 场景应用：在应用入口文件中定义路由结构。
 
@@ -22,7 +30,37 @@ const RouteList = [
 
 const App = () => {
 	return (
-		<BrowserRouter routes={RouteList} />
+		<BrowserRouter routes={RouteList} basename='webapp'>
+			页面内容 (内部嵌套 Route 组件使用)
+		</BrowserRouter>
+	);
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root")!);
+root.render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>
+);
+```
+
+#### Route
+
+路由组件，根据路由变化自动切换渲染内容。
+
+```tsx
+const App = () => {
+	return (
+		<BrowserRouter routes={RouteList} basename='webapp'>
+			{/* 头部 */}
+			<Header />
+			<Main>
+				{/* 左侧菜单 */}
+				<Sider />
+				{/* 路由组件 */}
+				<Route />
+			</Main>
+		</BrowserRouter>
 	);
 };
 
@@ -137,4 +175,5 @@ export default function App() {
 
 ## Todo
 
+- [ ] 补充最佳实践
 - [ ] 探索集成权限控制
