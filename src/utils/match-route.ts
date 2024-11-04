@@ -2,6 +2,7 @@ import { IRoute } from "../types";
 
 // 定义路由匹配函数
 export const matchRoute = (pathname: string, routes: IRoute[]) => {
+  console.log('enter matchRoute', pathname, routes)
   for (let i = 0; i < routes.length; i++) {
     const route = routes[i];
     const routePath = route.path;
@@ -17,7 +18,7 @@ export const matchRoute = (pathname: string, routes: IRoute[]) => {
     console.log('key列表', routeParamKeys)
     console.log('值列表', routeParamValues)
 
-    const tempParams: Record<string, string> = {} 
+    const tempParams: Record<string, string> = {}
     routeParamKeys.forEach((key, index)=>{
       tempParams[key] = routeParamValues?.[index]!;
     })

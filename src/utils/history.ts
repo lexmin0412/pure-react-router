@@ -1,35 +1,47 @@
-// history.ts
+interface IPureHistoryOptions {
+  basename?: string;
+}
+
+/**
+ * 自定义 history 类
+ */
 class PureHistory {
+  private basename: string
   private currentPath: string;
   private historyStack: string[];
 
-  constructor() {
-    this.currentPath = window.location.pathname;
+  constructor(options: IPureHistoryOptions) {
+    this.basename = options.basename || ''
+    this.currentPath = this.basename ? window.location.pathname.slice(this.basename.length) : window.location.pathname;
     this.historyStack = [this.currentPath];
   }
 
-  get location() {
+  public getFullPath = (path: string) => {
+    return `${this.basename}${path}`
+  }
+
+
+  public get location() {
     return {
 			...window.location,
       pathname: this.currentPath,
 		};
   }
 
-  push(path: string) {
+  public push = (path: string) => {
     this.currentPath = path;
-    this.historyStack.push(path);
-    console.log('走到 history 的 push 了', path)
-    window.history.pushState({}, '', path);
+    this.historyStack = [...(this.historyStack || []), path]
+    window.history.pushState({}, '', this.getFullPath(path));
     window.dispatchEvent(new PopStateEvent('popstate'));
   }
 
-  replace(path: string) {
+  public replace = (path: string) => {
     this.currentPath = path;
     this.historyStack[this.historyStack.length - 1] = path;
-    window.history.replaceState({}, '', path);
+    window.history.replaceState({}, '', this.getFullPath(path));
   }
 
-  goBack() {
+  public goBack = () => {
     if (this.historyStack.length > 1) {
       this.historyStack.pop();
       const previousPath = this.historyStack[this.historyStack.length - 1];
@@ -39,4 +51,4 @@ class PureHistory {
   }
 }
 
-export default new PureHistory();
+export default PureHistory

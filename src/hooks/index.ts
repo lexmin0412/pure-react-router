@@ -9,7 +9,9 @@ export { default as useSearchParams } from "./use-search-params";
  * 路由上下文
  */
 export const PureRouterContext = React.createContext<{
+  basename: string;
   routes: IRoute[];
 }>({
+  basename: "",
   routes: [],
 });

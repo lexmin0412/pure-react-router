@@ -1,12 +1,21 @@
-import { useState, useEffect } from 'react';
-import history from '../utils/history';
+import { useState, useEffect, useContext } from 'react';
+import PureHistory from '../utils/history';
+import { PureRouterContext } from '.';
+
+let historyInstance: PureHistory | null = null
 
 const useHistory = () => {
-  const [location, setLocation] = useState(history.location);
+  const { basename } = useContext(PureRouterContext)
+
+  if (!historyInstance) {
+    historyInstance = new PureHistory({ basename })
+  }
+
+  const [location, setLocation] = useState(historyInstance.location);
 
   useEffect(() => {
     const handlePopState = () => {
-      setLocation(history.location);
+      setLocation((historyInstance!).location);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -18,9 +27,9 @@ const useHistory = () => {
 
   return {
     location,
-    push: history.push,
-    replace: history.replace,
-    goBack: history.goBack,
+    push: historyInstance.push,
+    replace: historyInstance.replace,
+    goBack: historyInstance.goBack,
   };
 };
 

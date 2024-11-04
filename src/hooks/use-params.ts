@@ -4,7 +4,6 @@ import useHistory from "./use-history";
 import { matchRoute } from "../utils";
 
 const useParams = () => {
-
   const { routes } = useContext(PureRouterContext)
   const { location: { pathname } } = useHistory()
   const matchedRoute = matchRoute(pathname, routes)

@@ -1,25 +1,24 @@
-import useHistory from "../hooks/use-history";
-import { matchRoute } from "../utils/match-route";
+import React from 'react'
 import { IRoute } from "../types";
 import { PureRouterContext } from "../hooks";
 
 interface IBrowserRouterProps {
+  basename: string
   routes: IRoute[];
+  children: React.ReactNode;
 }
 
+/**
+ * 路由容器, 提供路由信息
+ */
 const BrowserRouter = (props: IBrowserRouterProps) => {
-  const { routes } = props;
-  const history = useHistory();
-  const RouteComponent = matchRoute(history.location.pathname, routes)?.route
-    ?.component;
+  const { basename, routes, children } = props;
 
-  return RouteComponent ? (
-    <PureRouterContext.Provider value={{ routes }}>
-      <RouteComponent />
+  return (
+    <PureRouterContext.Provider value={{ routes, basename }}>
+      {children}
     </PureRouterContext.Provider>
-  ) : (
-    <></>
-  );
+  )
 };
 
 export default BrowserRouter;
