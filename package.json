@@ -1,7 +1,7 @@
 {
   "name": "pure-react-router",
   "version": "0.0.2",
-  "description": "一个干净的 React Router 实现。",
+  "description": "基于 React 的超轻量路由库，参考了 React Router 但大幅精简了 API。",
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
     "ts": "ts-node src/",
     "prepublishOnly": "npm run build"
   },
-  "keywords": [],
+  "keywords": ["react", "react-router", "router", "light-weight"],
   "author": {
     "name": "lexmin0412",
     "email": "zhangle_dev@outlook.com",

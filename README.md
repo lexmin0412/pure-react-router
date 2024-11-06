@@ -5,7 +5,7 @@
 
 ## 介绍
 
-基于 React 简洁路由库，参考了 React Router 但大幅精简了 API。
+基于 React 的 **超轻量** 路由库，参考了 React Router 但大幅精简了 API。
 
 - 快速迁移，与 React Router 的核心 API 基本一致
 - 轻量简洁，除宿主自带 React 外，无任何第三方依赖
