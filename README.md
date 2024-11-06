@@ -1,8 +1,11 @@
-# Pure React Router（WIP）
+# Pure React Router
+
+![version](https://img.shields.io/npm/v/pure-react-router)
+![downloads-month](https://img.shields.io/npm/dm/pure-react-router)
 
 一个干净的 React Router 实现，API 参考了 React Router 但大幅简化。
 
-- 快速，API 与 React Router 的核心 API 用法基本一致
+- 快速迁移，API 与 React Router 的核心 API 用法基本一致
 - 轻量，除应用所需 React 外，无任何第三方依赖
 
 ## API
