@@ -3,10 +3,20 @@
 ![version](https://img.shields.io/npm/v/pure-react-router)
 ![downloads-month](https://img.shields.io/npm/dm/pure-react-router)
 
-一个干净的 React Router 实现，API 参考了 React Router 但大幅简化。
+## 介绍
 
-- 快速迁移，API 与 React Router 的核心 API 用法基本一致
-- 轻量，除应用所需 React 外，无任何第三方依赖
+基于 React 简洁路由库，参考了 React Router 但大幅精简了 API。
+
+- 快速迁移，与 React Router 的核心 API 基本一致
+- 轻量简洁，除宿主自带 React 外，无任何第三方依赖
+
+### 为什么要有 Pure React Router?
+
+每次创建新项目时，我一般习惯将基础依赖如 React、React Router 等升级到最新的稳定版本，但当我将旧的路由代码迁移到新的项目时，发现 React Router API 又发生了变更导致运行时报错 [^崩溃^]。
+
+压垮骆驼的最后一根稻草，是在 [React Conf 2024 上，Remix 团队宣布在即将发布的 React Router v7.0 中，将 React Router 和 Remix 进行合并](https://remix.run/blog/merging-remix-and-react-router)，是的没看错，它正式成为了一个全栈框架。
+
+众所周知，对于大型框架如 Next.js、Tanstack 等的路由系统为了支持复杂的功能，往往会有繁杂的 API 和不知隐藏在何处的文档，而这次，我再也不想将就了。Pure React Router 由此应运而生，你再也不用担心你的路由库会变成一个巨石应用的一部分了。
 
 ## API
 
@@ -18,8 +28,8 @@
 
 属性：
 
-- basename 路由前缀
-- routes 路由配置
+- `basename` 路由前缀
+- `routes` 路由配置
 
 场景应用：在应用入口文件中定义路由结构。
 
@@ -32,18 +42,18 @@ const RouteList = [
 ];
 
 const App = () => {
-	return (
-		<BrowserRouter routes={RouteList} basename='webapp'>
-			页面内容 (内部嵌套 Route 组件使用)
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter routes={RouteList} basename='webapp'>
+      页面内容 (内部嵌套 Route 组件使用)
+    </BrowserRouter>
+  );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 ```
 
@@ -53,25 +63,25 @@ root.render(
 
 ```tsx
 const App = () => {
-	return (
-		<BrowserRouter routes={RouteList} basename='webapp'>
-			{/* 头部 */}
-			<Header />
-			<Main>
-				{/* 左侧菜单 */}
-				<Sider />
-				{/* 路由组件 */}
-				<Route />
-			</Main>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter routes={RouteList} basename='webapp'>
+      {/* 头部 */}
+      <Header />
+      <Main>
+        {/* 左侧菜单 */}
+        <Sider />
+        {/* 路由组件 */}
+        <Route />
+      </Main>
+    </BrowserRouter>
+  );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 ```
 
@@ -83,7 +93,7 @@ root.render(
 
 ```tsx
 export default function App() {
-	return <Link to="/test1">test1</Link>
+  return <Link to="/test1">test1</Link>
 }
 ```
 
@@ -101,18 +111,18 @@ import pkgJson from '../package.json'
 
 export default function App() {
 
-	const history = useHistory()
+  const history = useHistory()
 
-	useEffect(() => {
-		if (history.location.pathname.includes('detail')) {
-			document.title = `详情`
-		}
-		document.title = pkgJson.name
-	}, [history.location.pathname])
+  useEffect(() => {
+    if (history.location.pathname.includes('detail')) {
+      document.title = `详情`
+    }
+    document.title = pkgJson.name
+  }, [history.location.pathname])
 
-	return (
-		<div>Content</div>
-	)
+  return (
+    <div>Content</div>
+  )
 }
 ```
 
@@ -130,21 +140,21 @@ import { useParams } from "pure-react-router";
 
 export default function App() {
 
-	const params = useParams()
-	const [detail, setDetail] = useState()
+  const params = useParams()
+  const [detail, setDetail] = useState()
 
-	const getDetail = async(id: string) => {
-		const result = await promise()
-		setDetail(result)
-	}
+  const getDetail = async(id: string) => {
+    const result = await promise()
+    setDetail(result)
+  }
 
-	useEffect(() => {
-		getDetail(params.id)
-	}, [])
+  useEffect(() => {
+    getDetail(params.id)
+  }, [])
 
-	return (
-		<div>{detail}</div>
-	)
+  return (
+    <div>{detail}</div>
+  )
 }
 ```
 
@@ -158,21 +168,21 @@ export default function App() {
 import { useSearchParams } from 'pure-react-router'
 
 export default function App() {
-	const searchParams = useSearchParams()
-	const [detail, setDetail] = useState()
+  const searchParams = useSearchParams()
+  const [detail, setDetail] = useState()
 
-	const getDetail = async(id: string) => {
-		const result = await promise()
-		setDetail(result)
-	}
+  const getDetail = async(id: string) => {
+    const result = await promise()
+    setDetail(result)
+  }
 
-	useEffect(() => {
-		getDetail(searchParams.get('id'))
-	}, [])
+  useEffect(() => {
+    getDetail(searchParams.get('id'))
+  }, [])
 
-	return (
-		<div>{detail}</div>
-	)
+  return (
+    <div>{detail}</div>
+  )
 }
 ```
 
