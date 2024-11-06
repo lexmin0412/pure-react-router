@@ -16,7 +16,7 @@
 
 压垮骆驼的最后一根稻草，是在 [React Conf 2024 上，Remix 团队宣布在即将发布的 React Router v7.0 中，将 React Router 和 Remix 进行合并](https://remix.run/blog/merging-remix-and-react-router)，是的没看错，它正式成为了一个全栈框架。
 
-众所周知，对于大型框架如 Next.js、Tanstack 等的路由系统为了支持复杂的功能，往往会有繁杂的 API 和不知隐藏在何处的文档，而这次，我再也不想将就了。Pure React Router 由此应运而生，你再也不用担心你的路由库会变成一个巨石应用的一部分了。
+众所周知，对于大型框架如 Next.js、Tanstack 等的路由系统为了支持复杂的功能，往往会有繁杂的 API 和不知隐藏在何处的文档，而这次，我再也不想将就了。Pure React Router 由此应运而生，你再也不用担心你的路由库会变成一个巨石框架的一部分了。
 
 ## API
 
