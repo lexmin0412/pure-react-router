@@ -43,7 +43,7 @@ const RouteList = [
 
 const App = () => {
   return (
-    <BrowserRouter routes={RouteList} basename='webapp'>
+    <BrowserRouter routes={RouteList} basename='/webapp'>
       页面内容 (内部嵌套 Route 组件使用)
     </BrowserRouter>
   );
@@ -89,11 +89,17 @@ root.render(
 
 跳转组件，用于替换 a 标签。
 
+属性：
+
+- `className` a 标签类名，可选
+- `to` 目标路径(无需拼接 basename)
+- `children` 链接文本元素(可以是 React 组件)
+
 场景应用：跳转到其他路由。
 
 ```tsx
 export default function App() {
-  return <Link to="/test1">test1</Link>
+  return <Link className="text-blue" to="/test1">test1</Link>
 }
 ```
 
