@@ -39,6 +39,7 @@ class PureHistory {
     this.currentPath = path;
     this.historyStack[this.historyStack.length - 1] = path;
     window.history.replaceState({}, '', this.getFullPath(path));
+    window.dispatchEvent(new PopStateEvent('popstate'));
   }
 
   public goBack = () => {
