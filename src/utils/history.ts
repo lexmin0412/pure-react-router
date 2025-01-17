@@ -6,7 +6,7 @@ interface IPureHistoryOptions {
  * 自定义 history 类
  */
 class PureHistory {
-  private basename: string
+  private basename: string;
   private currentPath: string;
   private historyStack: string[];
 
@@ -24,19 +24,17 @@ class PureHistory {
   public get location() {
     return {
 			...window.location,
-      pathname: this.currentPath,
+      pathname: window.location.pathname.slice(this.basename.length),
 		};
   }
 
   public push = (path: string) => {
-    this.currentPath = path;
     this.historyStack = [...(this.historyStack || []), path]
     window.history.pushState({}, '', this.getFullPath(path));
     window.dispatchEvent(new PopStateEvent('popstate'));
   }
 
   public replace = (path: string) => {
-    this.currentPath = path;
     this.historyStack[this.historyStack.length - 1] = path;
     window.history.replaceState({}, '', this.getFullPath(path));
     window.dispatchEvent(new PopStateEvent('popstate'));
@@ -45,8 +43,6 @@ class PureHistory {
   public goBack = () => {
     if (this.historyStack.length > 1) {
       this.historyStack.pop();
-      const previousPath = this.historyStack[this.historyStack.length - 1];
-      this.currentPath = previousPath;
       window.history.back();
     }
   }
