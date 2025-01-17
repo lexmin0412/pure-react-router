@@ -31,13 +31,25 @@ class PureHistory {
   public push = (path: string) => {
     this.historyStack = [...(this.historyStack || []), path]
     window.history.pushState({}, '', this.getFullPath(path));
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.dispatchEvent(new PopStateEvent('popstate', {
+			state: {
+				_PRR: {
+					action: 'pushState'
+				}
+			}
+		}));
   }
 
   public replace = (path: string) => {
     this.historyStack[this.historyStack.length - 1] = path;
     window.history.replaceState({}, '', this.getFullPath(path));
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.dispatchEvent(new PopStateEvent('popstate', {
+			state: {
+				_PRR: {
+					action: 'replaceState'
+				}
+			}
+		}))
   }
 
   public goBack = () => {
