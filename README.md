@@ -21,10 +21,46 @@
 
 众所周知，对于大型框架如 Next.js、Tanstack 等的路由系统为了支持复杂的功能，往往会有繁杂的 API 和不知隐藏在何处的文档，而这次，我再也不想将就了。Pure React Router 由此应运而生，你再也不用担心你的路由库会变成一个巨石框架的一部分了。
 
-## 安装
+## 开始
+
+### 安装
 
 ```shell
 pnpm install pure-react-router
+```
+
+### 第一个例子
+
+在入口文件中嵌入 `<BrowserRouter/>` 组件，并包裹 `<Route />`:
+
+```tsx
+// src/App.tsx
+import {BrowserRouter, Route} from "pure-react-router";
+
+const routes = [
+  {
+    path: "/home",
+    component: Home,
+  },
+  {
+    path: "/about",
+    component: About,
+  },
+  {
+    path: "/",
+    component: Home,
+  },
+]
+
+function App() {
+  return (
+    <React.StrictMode>
+      <BrowserRouter routes={routes} basename="/react-template">
+        <Route />
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+}
 ```
 
 ## API
@@ -199,8 +235,3 @@ export default function App() {
   )
 }
 ```
-
-## Todo
-
-- [ ] 补充最佳实践
-- [ ] 探索集成权限控制
