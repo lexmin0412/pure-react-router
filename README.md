@@ -1,14 +1,17 @@
 # Pure React Router
 
 ![version](https://img.shields.io/npm/v/pure-react-router)
-![downloads-month](https://img.shields.io/npm/dm/pure-react-router)
+![NPM Last Update](https://img.shields.io/npm/last-update/pure-react-router)
+![NPM Downloads](https://img.shields.io/npm/dm/pure-react-router)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/lexmin0412/pure-react-router)
+![npm bundle size (version)](https://img.shields.io/bundlephobia/minzip/pure-react-router/latest)
 
 ## 介绍
 
 基于 React 的 **超轻量** 路由库，参考了 React Router 但大幅精简了 API。
 
 - 快速迁移，与 React Router 的核心 API 基本一致
-- 轻量简洁，除宿主自带 React 外，无任何第三方依赖
+- 轻量简洁，除宿主自带 React 外，无任何第三方依赖，压缩后的产物仅 1.2kb
 
 ### 为什么要有 Pure React Router?
 
