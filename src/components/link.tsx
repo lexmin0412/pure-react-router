@@ -14,15 +14,23 @@ interface ILinkProps {
 	 * 子元素
 	 */
 	children: React.ReactNode
+	/**
+	 * 是否使用 replace 模式
+	 */
+	replace?: boolean
 }
 
 const Link = (props: ILinkProps) => {
 
-	const { className, to, children } = props
+	const { className, to, children, replace } = props
 	const history = useHistory()
 
 	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault();
+		if (replace) {
+			history.replace(to);
+			return;
+		}
 		history.push(to);
 	};
 
