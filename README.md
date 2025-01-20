@@ -55,7 +55,7 @@ const routes = [
 function App() {
   return (
     <React.StrictMode>
-      <BrowserRouter routes={routes} basename="/react-template">
+      <BrowserRouter routes={routes} basename="/webapp">
         <Route />
       </BrowserRouter>
     </React.StrictMode>
@@ -234,4 +234,105 @@ export default function App() {
     <div>{detail}</div>
   )
 }
+```
+
+#### useMatchRoute
+
+获取当前匹配的路由信息，同 `matchRoute(history.location.pathname, routes)`。
+
+场景应用：处理 404 页面跳转逻辑。
+
+```tsx
+import { useMatchRoute, useHistory, PureRouterContext, Route } from 'pure-react-router'
+
+export default function App() {
+
+  const { routes } = useContext(PureRouterContext)
+  const history = useHistory()
+  const { route } = useMatchRoute()
+
+  useEffect(() => {
+		if (!route) {
+			history.push('/common/404')
+		}
+	}, [history.location.pathname])
+}
+```
+
+#### PureRouterContext
+
+全局上下文。
+
+场景应用：深层嵌套子组件获取 basename 配置。
+
+```tsx
+import { useContext } from 'react'
+import { PureRouterContext } from 'pure-react-router'
+
+export default function DeepNestedComponent() {
+  const { basename } = useContext(PureRouterContext)
+
+  return (
+    <div>当前应用：{basename}</div>
+  )
+}
+```
+
+### Utils
+
+#### matchRoute
+
+获取指定路径匹配的路由信息。
+
+场景应用：特殊处理某个路由的渲染。
+
+```tsx
+import { matchRoute, useHistory, PureRouterContext, Route } from 'pure-react-router'
+
+export default function App() {
+  const history = useHistory()
+  const { routes } = useContext(PureRouterContext)
+  const { route } = matchRoute('/home', routes)
+
+  if (history.location.pathname === '/home') {
+    return <Home specialPropName="" />
+  } else {
+    return <Route />
+  }
+}
+```
+
+### Types
+
+#### IRoute
+
+路由配置项。
+
+场景应用：定义 <BrowserRouter /> 组件的 routes 属性。
+
+```tsx
+import { BrowserRouter } from 'pure-react-router'
+
+const routes: IRoute[] = [
+  {
+    path: '/home',
+    component: Home,
+  },
+  {
+    path: '/about',
+    component: About,
+  },
+  {
+    path: '/',
+    component: Home,
+  },
+]
+
+export const App = () => {
+  return (
+    <BrowserRouter routes={routes} basename='/webapp'>
+      <Route />
+    </BrowserRouter>
+  );
+};
 ```
