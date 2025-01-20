@@ -11,7 +11,7 @@
     "ts": "ts-node src/",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["react", "react-router", "router", "light-weight"],
+  "keywords": ["react", "react-router", "router", "pure-react-router", "light-weight-router"],
   "author": {
     "name": "lexmin0412",
     "email": "zhangle_dev@outlook.com",
