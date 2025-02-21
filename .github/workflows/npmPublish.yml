@@ -21,6 +21,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: pnpm install
       - run: pnpm build
+      - name: Sync git tags
+        run: |
+          git fetch --prune --prune-tags  # 清理已删除的远程标签
+          git fetch --tags -f
       - run: export RELEASE_IT_TOKEN=${{secrets.RELEASE_IT_TOKEN}} && pnpm release --ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
