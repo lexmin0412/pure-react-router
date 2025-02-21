@@ -51,25 +51,5 @@
   },
   "peerDependencies": {
     "react": "^18.0.0"
-  },
-	"release-it": {
-    "git": {
-      "commitMessage": "chore(release): v${version}",
-      "tagName": "v${version}",
-			"requireCommits": true
-    },
-    "github": {
-      "release": true,
-			"releaseNotes": "npx conventional-changelog -p angular -i CHANGELOG.md -s"
-    },
-		"plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular",
-        "infile": "CHANGELOG.md"
-      }
-    },
-    "npm": {
-      "publish": true
-    }
   }
 }
