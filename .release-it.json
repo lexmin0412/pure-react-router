@@ -7,8 +7,7 @@
 	},
 	"github": {
 		"tokenRef": "RELEASE_IT_TOKEN",
-		"release": true,
-		"releaseNotes": "npx conventional-changelog -p angular -i CHANGELOG.md -s"
+		"release": true
 	},
 	"npm": {
 		"publish": true
