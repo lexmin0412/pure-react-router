@@ -3,15 +3,18 @@ import { PureRouterContext } from "../hooks";
 import useHistory from "./use-history";
 import { matchRoute } from "../utils";
 
-const useParams = () => {
+/**
+ * 获取 path 参数
+ */
+const useParams = <T extends Record<string, string> = {}>(): T => {
   const { routes } = useContext(PureRouterContext)
   const { location: { pathname } } = useHistory()
   const matchedRoute = matchRoute(pathname, routes)
 
   if (!matchedRoute) {
-    return {}
+    return {} as T
   }
-  return matchedRoute?.params
+  return (matchedRoute?.params || {}) as T
 };
 
 export default useParams
