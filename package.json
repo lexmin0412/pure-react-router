@@ -9,7 +9,8 @@
     "build:es": "rimraf es && tsc --target es6 --outDir es --module es6",
     "build": "npm run build:commonjs && npm run build:es",
     "ts": "ts-node src/",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+		"release": "release-it"
   },
   "keywords": ["react", "react-router", "router", "pure-react-router", "light-weight-router"],
   "author": {
@@ -44,9 +45,31 @@
     "@types/react": "^18.3.12",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+		"@release-it/conventional-changelog": "^10.0.0",
+		"release-it": "^18.1.2"
   },
   "peerDependencies": {
     "react": "^18.0.0"
+  },
+	"release-it": {
+    "git": {
+      "commitMessage": "chore(release): v${version}",
+      "tagName": "v${version}",
+			"requireCommits": true
+    },
+    "github": {
+      "release": true,
+			"releaseNotes": "npx conventional-changelog -p angular -i CHANGELOG.md -s"
+    },
+		"plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
+      }
+    },
+    "npm": {
+      "publish": true
+    }
   }
 }
