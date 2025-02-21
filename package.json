@@ -1,6 +1,6 @@
 {
   "name": "pure-react-router",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "基于 React 的超轻量路由库，参考了 React Router 但大幅精简了 API。",
   "main": "./lib/index.js",
   "scripts": {
@@ -10,9 +10,15 @@
     "build": "npm run build:commonjs && npm run build:es",
     "ts": "ts-node src/",
     "prepublishOnly": "npm run build",
-		"release": "release-it"
+    "release": "release-it"
   },
-  "keywords": ["react", "react-router", "router", "pure-react-router", "light-weight-router"],
+  "keywords": [
+    "react",
+    "react-router",
+    "router",
+    "pure-react-router",
+    "light-weight-router"
+  ],
   "author": {
     "name": "lexmin0412",
     "email": "zhangle_dev@outlook.com",
@@ -46,8 +52,8 @@
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3",
-		"@release-it/conventional-changelog": "^10.0.0",
-		"release-it": "^18.1.2"
+    "@release-it/conventional-changelog": "^10.0.0",
+    "release-it": "^18.1.2"
   },
   "peerDependencies": {
     "react": "^18.0.0"
