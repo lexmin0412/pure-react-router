@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.2.1](https://github.com/lexmin0412/pure-react-router/compare/v0.2.0...v0.2.1) (2025-03-19)
+
 # [0.2.0](https://github.com/lexmin0412/pure-react-router/compare/v0.1.2...v0.2.0) (2025-03-19)
 
 
