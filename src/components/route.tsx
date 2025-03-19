@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useMemo } from 'react'
 
 import { PureRouterContext, useHistory } from '../hooks'
 import { matchRoute } from '../utils'
@@ -9,7 +9,19 @@ import { matchRoute } from '../utils'
 export default function Route() {
 	const history = useHistory()
 	const { routes } = useContext(PureRouterContext)
-	const RouteComponent = matchRoute(history.location.pathname, routes)?.route?.component
 
-	return RouteComponent ? <RouteComponent /> : <></>
+	const matchedRoute = useMemo(()=>{
+		return matchRoute(history.location.pathname, routes)?.route
+	}, [history.location.pathname, routes])
+
+	if (matchedRoute?.component) {
+		const RouteComponent = matchedRoute.component
+		return <RouteComponent />
+	}
+
+	if (matchedRoute?.redirect) {
+		history.push(matchedRoute.redirect)
+	}
+
+	return <></>
 }

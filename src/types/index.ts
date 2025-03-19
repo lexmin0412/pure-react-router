@@ -20,5 +20,9 @@ export interface IRoute {
 	/**
 	 * 组件
 	 */
-  component: IStaticComponent | ILazyComponent;
+  component: IStaticComponent | ILazyComponent | null;
+	/**
+	 * 重定向路由 path
+	 */
+	redirect?: string;
 }
