@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.2.0](https://github.com/lexmin0412/pure-react-router/compare/v0.1.2...v0.2.0) (2025-03-19)
+
+
+### Features
+
+* 支持 routeItem 配置 redirect 选项, 重定向到其他路由 ([8fb6a38](https://github.com/lexmin0412/pure-react-router/commit/8fb6a3899adeb7db1dc54ec06891d110eda97f5e))
+
 ## [0.1.2](https://github.com/lexmin0412/pure-react-router/compare/v0.1.1...v0.1.2) (2025-03-18)
 
 ## [0.1.1](https://github.com/lexmin0412/pure-react-router/compare/v0.1.0...v0.1.1) (2025-02-21)
