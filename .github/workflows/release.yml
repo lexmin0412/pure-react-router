@@ -43,7 +43,7 @@ jobs:
       - name: Publish with Lerna
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-          GH_TOKEN: ${{secrets.COMMIT_TOKEN}}
+          GH_TOKEN: ${{secrets.RELEASE_IT_TOKEN}}
         run: |
           pnpm ci:version
           pnpm ci:publish
