@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/lexmin0412/pure-react-router/compare/v0.2.2...v0.2.3) (2025-03-20)
+
+
+### Bug Fixes
+
+* **core:** 修复 npm 发布空包的问题 ([8c62c6c](https://github.com/lexmin0412/pure-react-router/commit/8c62c6ca8c75898beb7b2c6714af411025c49595))
+
+
+
+
+
 ## [0.2.2](https://github.com/lexmin0412/pure-react-router/compare/v0.2.1...v0.2.2) (2025-03-20)
 
 **Note:** Version bump only for package pure-react-router

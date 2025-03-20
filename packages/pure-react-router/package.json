@@ -1,6 +1,6 @@
 {
   "name": "pure-react-router",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "基于 React 的超轻量路由库，参考了 React Router 但大幅精简了 API。",
   "main": "./lib/index.js",
   "packageManager": "pnpm@8.9.2",
