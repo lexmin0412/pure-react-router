@@ -1,3 +1,19 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.2.2](https://github.com/lexmin0412/pure-react-router/compare/v0.2.1...v0.2.2) (2025-03-20)
+
+
+### Bug Fixes
+
+* **pnpm-workspace:** 修正pnpm-workspace.yaml的格式 ([bffe059](https://github.com/lexmin0412/pure-react-router/commit/bffe059a0b1615689144902debaa2093d0be2a9f))
+
+
+
+
+
 # Changelog
 
 ## [0.2.1](https://github.com/lexmin0412/pure-react-router/compare/v0.2.0...v0.2.1) (2025-03-19)
