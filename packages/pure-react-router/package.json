@@ -1,0 +1,74 @@
+{
+  "name": "pure-react-router",
+  "version": "0.2.1",
+  "description": "基于 React 的超轻量路由库，参考了 React Router 但大幅精简了 API。",
+  "main": "./lib/index.js",
+  "packageManager": "pnpm@8.9.2",
+  "scripts": {
+    "build": "rslib build",
+    "check": "biome check --write",
+    "dev": "rslib build --watch",
+    "format": "biome format --write",
+    "test": "vitest run",
+    "ci:version": "lerna version --yes --conventional-commits --create-release github",
+		"ci:publish": "lerna publish from-package --yes"
+  },
+  "keywords": [
+    "react",
+    "react-router",
+    "router",
+    "pure-react-router",
+    "light-weight-router"
+  ],
+  "author": {
+    "name": "lexmin0412",
+    "email": "zhangle_dev@outlook.com",
+    "url": "https://github.com/lexmin0412"
+  },
+  "license": "ISC",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lexmin0412/pure-react-router.git",
+    "directory": ""
+  },
+  "bugs": {
+    "url": "https://github.com/lexmin0412/pure-react-router/issues"
+  },
+  "homepage": "https://github.com/lexmin0412/pure-react-router#readme",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@rsbuild/plugin-react": "^1.1.1",
+    "@rslib/core": "^0.5.5",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/react": "^18.0.0",
+    "jsdom": "^26.0.0",
+    "react": "^18.0.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0",
+    "@types/react": "^18.0.0"
+  },
+  "dependencies": {}
+}

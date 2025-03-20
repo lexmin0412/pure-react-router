@@ -12,7 +12,5 @@
 		"esModuleInterop": true,
 		"jsx": "react-jsx"
   },
-  "includes": [
-    "src/*"
-  ]
+  "includes": ["packages/*"]
 }

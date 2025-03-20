@@ -2,16 +2,13 @@
   "name": "pure-react-router",
   "version": "0.2.1",
   "description": "基于 React 的超轻量路由库，参考了 React Router 但大幅精简了 API。",
-  "main": "./lib/index.js",
   "packageManager": "pnpm@8.9.2",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:commonjs": "rimraf lib && tsc --target es5 --outDir lib --module commonjs --declaration",
-    "build:es": "rimraf es && tsc --target es6 --outDir es --module es6",
-    "build": "npm run build:commonjs && npm run build:es",
-    "ts": "ts-node src/",
-    "prepublishOnly": "npm run build",
-    "release": "release-it"
+    "build": "pnpm --filter pure-react-router build",
+    "prepublishOnly": "pnpm build",
+    "ci:version": "lerna version --yes --conventional-commits --create-release github",
+		"ci:publish": "lerna publish from-package --yes"
   },
   "keywords": [
     "react",
@@ -26,13 +23,6 @@
     "url": "https://github.com/lexmin0412"
   },
   "license": "ISC",
-  "files": [
-    "es",
-    "lib"
-  ],
-  "types": "./lib/index.d.ts",
-  "jsnext:main": "./es/index.js",
-  "module": "./es/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/lexmin0412/pure-react-router.git",
@@ -42,22 +32,9 @@
     "url": "https://github.com/lexmin0412/pure-react-router/issues"
   },
   "homepage": "https://github.com/lexmin0412/pure-react-router#readme",
-  "private": false,
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
+  "private": true,
   "devDependencies": {
-    "@types/node": "^22.7.9",
-    "@types/react": "^18.3.12",
-    "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.6.3",
-    "@release-it/conventional-changelog": "^10.0.0",
-    "release-it": "^18.1.2"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "@types/react": "^18.0.0"
+    "lerna": "^8.0.0",
+    "typescript": "^5.6.3"
   }
 }
