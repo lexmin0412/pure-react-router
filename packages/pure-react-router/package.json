@@ -27,8 +27,7 @@
   },
   "license": "ISC",
   "files": [
-    "es",
-    "lib"
+    "dist"
   ],
   "type": "module",
   "exports": {
