@@ -3,11 +3,11 @@ import { LazyExoticComponent } from "react";
 /**
  * 静态组件
  */
-type IStaticComponent = () => JSX.Element
+type IStaticComponent = () => React.ReactNode
 /**
  * 懒加载组件
  */
-type ILazyComponent = LazyExoticComponent<() => JSX.Element>
+type ILazyComponent = LazyExoticComponent<() => React.ReactNode>
 
 /**
  * 路由配置 Item
