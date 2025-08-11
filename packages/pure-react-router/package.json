@@ -54,7 +54,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@rsbuild/plugin-react": "^1.1.1",
-    "@rslib/core": "^0.5.5",
+    "@rslib/core": "^0.11.2",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@types/react": "^19.0.0",
