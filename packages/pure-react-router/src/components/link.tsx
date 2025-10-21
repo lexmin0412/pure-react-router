@@ -18,11 +18,15 @@ interface ILinkProps {
 	 * 是否使用 replace 模式
 	 */
 	replace?: boolean
+	/**
+	 * 链接标题
+	 */
+	title?: string
 }
 
 const Link = (props: ILinkProps) => {
 
-	const { className, to, children, replace } = props
+	const { className, to, children, replace, title } = props
 	const history = useHistory()
 
 	const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -35,7 +39,7 @@ const Link = (props: ILinkProps) => {
 	};
 
 	return (
-		<a href={to} className={className} onClick={handleClick}>
+		<a href={to} title={title} className={className} onClick={handleClick}>
 			{children}
 		</a>
 	);
