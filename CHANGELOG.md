@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/lexmin0412/pure-react-router/compare/v0.2.6...v0.3.0) (2025-10-21)
+
+
+### Features
+
+* **link组件:** 添加title属性支持 ([da74b5f](https://github.com/lexmin0412/pure-react-router/commit/da74b5f35ee7b13a42b327e6558008e7b2e4843d))
+
+
+
+
+
 ## [0.2.6](https://github.com/lexmin0412/pure-react-router/compare/v0.2.5...v0.2.6) (2025-09-09)
 
 **Note:** Version bump only for package pure-react-router
