@@ -52,7 +52,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.2.6",
     "@rsbuild/plugin-react": "^1.1.1",
     "@rslib/core": "^0.15.1",
     "@testing-library/jest-dom": "^6.6.3",
